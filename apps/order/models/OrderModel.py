@@ -22,4 +22,4 @@ class Order(PaymentInfo):
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return self.name
+        return 'Тут будет id'
