@@ -19,7 +19,8 @@ INSTALLED_APPS = [
     'apps.core.apps.CoreConfig',
     'apps.api.apps.ApiConfig',
     'apps.store.apps.StoreConfig',
-    'apps.task.apps.TaskConfig'
+    'apps.task.apps.TaskConfig',
+    'apps.order.apps.OrderConfig'
 ]
 
 MIDDLEWARE = [
