@@ -1,6 +1,6 @@
 from enum import Enum
+from apps.task.models.TaskModel import Task
 
 
 class Models(Enum):
-    pass
-    #  model_name = ModelName
+    task = Task
