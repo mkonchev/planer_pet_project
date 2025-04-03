@@ -9,7 +9,7 @@ class PaymentInfo(models.Model):
     class Meta:
         abstract = True
 
-class Order(models.Model):
+class Order(PaymentInfo):
     ModelAdmin = OrderModelAdmin
 
     cost = models.PositiveIntegerField(verbose_name='Цена подписки')
