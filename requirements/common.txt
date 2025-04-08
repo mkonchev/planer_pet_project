@@ -8,4 +8,4 @@ djangorestframework-simplejwt==5.3.1
 flower==2.0.1
 Pillow==10.2.0
 psycopg==3.1.18
-pytils==0.4.1
+pytils==0.4.3

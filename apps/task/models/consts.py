@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class TaskCategoryChoice(models.IntegerChoices):
     sport = 0, 'Спорт'
     edu = 1, 'Учеба'
