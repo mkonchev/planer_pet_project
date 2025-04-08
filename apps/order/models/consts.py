@@ -1,13 +1,13 @@
 from django.db import models
 
 
-class TaskPaymentTypeChoice(models.IntegerChoices):
+class OrderPaymentTypeChoice(models.IntegerChoices):
     tink = 0, 'Т-банк'
     sber = 1, 'Сбер'
     sbp = 2, 'СБП'
 
 
-class TaskStatusChoice(models.IntegerChoices):
+class OrderStatusChoice(models.IntegerChoices):
     none = 0, '-'
     checking = 1, 'На проверке'
     success = 2, 'Успешно'

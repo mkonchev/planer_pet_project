@@ -1,7 +1,7 @@
 from django.db import models
 
 from apps.order.models.admins.OrderModelAdmin import OrderModelAdmin
-from apps.order.models.consts import TaskPaymentTypeChoice, TaskStatusChoice
+from apps.order.models.consts import OrderPaymentTypeChoice, OrderStatusChoice
 from config.constants import NULLABLE
 
 
@@ -19,14 +19,14 @@ class Order(PaymentInfo):
     cost = models.PositiveIntegerField(verbose_name='Цена подписки')
     payment_type = models.PositiveIntegerField(
         verbose_name='Тип оплаты',
-        choices=TaskPaymentTypeChoice,
-        default=TaskPaymentTypeChoice.sbp
+        choices=OrderPaymentTypeChoice,
+        default=OrderPaymentTypeChoice.sbp
     )
     payment_external_id = models.PositiveIntegerField(verbose_name='ID платежа')
     status = models.PositiveIntegerField(
         verbose_name='Статус оплаты',
-        choices=TaskStatusChoice,
-        default=TaskStatusChoice.none
+        choices=OrderStatusChoice,
+        default=OrderStatusChoice.none
     )
     user = models.ForeignKey(
         'core.User',

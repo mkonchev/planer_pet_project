@@ -1,7 +1,8 @@
 from django.db import models
 
 from apps.task.models.admins.TaskModelAdmin import TaskModelAdmin
-from apps.task.models.consts import TaskCategoryChoice
+from apps.task.models.consts import TaskCategoryChoice, TaskStatusChoice
+from config.constants import NULLABLE
 
 
 class Task(models.Model):
@@ -14,7 +15,18 @@ class Task(models.Model):
         choices=TaskCategoryChoice.choices,
         default=TaskCategoryChoice.home
     )
-#   user_id = models.PositiveIntegerField
+    status = models.PositiveIntegerField(
+        verbose_name="Статус задачи",
+        choices=TaskStatusChoice.choices,
+        default=TaskStatusChoice.future
+    )
+    user = models.ForeignKey(
+            'core.User',
+            verbose_name='Пользователь',
+            on_delete=models.PROTECT,
+            related_name='tasks',
+            **NULLABLE
+        )
     start_date = models.DateTimeField(verbose_name="Время начала задания")
     end_date = models.DateTimeField(verbose_name="Дедлайн")
     price = models.PositiveIntegerField(verbose_name="Награда за выполение задания")

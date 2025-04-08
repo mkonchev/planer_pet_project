@@ -10,7 +10,13 @@ class User(AbstractUser):
     username = models.CharField(_('username'), max_length=150, null=True, blank=True)
     email = models.EmailField(_('email address'), unique=True)
     balance = models.PositiveIntegerField(verbose_name='Баланс', default=0)
-#    group_id
+    group = models.ForeignKey(
+        'group.Group',
+        verbose_name='Группа',
+        on_delete=models.PROTECT,
+        related_name='users',
+        **NULLABLE
+    )
     sub_active = models.BooleanField(verbose_name='Подписка', default=False)
     sub_due_to_date = models.DateTimeField(verbose_name='Активна до', **NULLABLE)
 
