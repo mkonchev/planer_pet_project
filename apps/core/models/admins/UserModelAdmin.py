@@ -13,7 +13,7 @@ class UserModelAdmin(UserAdmin):
         ),
     )
 
-    list_display = ("email", "first_name", "last_name", "is_staff")
+    list_display = ("email", "first_name", "last_name", "is_staff", "balance")
     ordering = ("email",)
     fieldsets = (
         (None, {"fields": ("email", "password")}),
