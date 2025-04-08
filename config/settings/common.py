@@ -21,7 +21,6 @@ INSTALLED_APPS = [
     'apps.store.apps.StoreConfig',
     'apps.task.apps.TaskConfig',
     'apps.order.apps.OrderConfig',
-    'apps.user.apps.UserConfig',
     'apps.group.apps.GroupConfig'
 ]
 
