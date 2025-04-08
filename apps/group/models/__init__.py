@@ -1,4 +1,5 @@
 from enum import Enum
+
 from apps.group.models.GroupModel import Group
 
 
