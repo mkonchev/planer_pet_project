@@ -7,13 +7,13 @@ from config.constants import NULLABLE
 class Group(models.Model):
     ModelAdmin = GroupModelAdmin
 
-    # user = models.ForeignKey(
-    #     'core.User',
-    #     verbose_name='Пользователь',
-    #     on_delete=models.PROTECT,
-    #     related_name='group',
-    #     **NULLABLE
-    # )
+    owner = models.ForeignKey(
+        'core.User',
+        verbose_name='Администратор',
+        on_delete=models.PROTECT,
+        related_name='owned_groups',
+        **NULLABLE
+    )
     name = models.CharField(verbose_name='Название группы', max_length=100)
     slug = models.CharField(verbose_name='Идентификатор группы', **NULLABLE, max_length=200)
 

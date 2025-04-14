@@ -13,11 +13,12 @@ class UserModelAdmin(UserAdmin):
         ),
     )
 
-    list_display = ("email", "first_name", "last_name", "is_staff", "balance")
+    list_display = ("email", "first_name", "last_name", "is_staff", "balance", "sub_active", "sub_due_to_date")
     ordering = ("email",)
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (_("Personal info"), {"fields": ("first_name", "last_name")}),
+        ('Дополнительная информация', {"fields": ("balance", "sub_active", "sub_due_to_date", "group")}),
         (
             _("Permissions"),
             {
