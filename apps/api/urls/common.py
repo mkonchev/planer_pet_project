@@ -1,8 +1,7 @@
-from django.urls import path, include
-
+from django.urls import include, path
 
 app_name = 'api'
 
 urlpatterns = [
-    #  path('some/', include('apps.api.urls.some_urls')),
+     path('groups/', include('apps.api.urls.group_urls')),
 ]
