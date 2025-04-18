@@ -11,3 +11,10 @@ def group_list_view(request):
     group_list = Group.objects.all()
     serializer = GroupSerializer(group_list, many=True)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def group_by_id(request, pk):
+    group = Group.objects.get(pk=pk)
+    serializer = GroupSerializer(group)
+    return Response(data=serializer.data, status=status.HTTP_200_OK)
