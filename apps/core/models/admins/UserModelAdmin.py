@@ -26,7 +26,7 @@ class UserModelAdmin(UserAdmin):
                     "is_active",
                     "is_staff",
                     "is_superuser",
-                    "groups",
+                    # "groups",
                     "user_permissions",
                 ),
             },
