@@ -16,6 +16,13 @@ class Group(models.Model):
     )
     name = models.CharField(verbose_name='Название группы', max_length=100)
     slug = models.CharField(verbose_name='Идентификатор группы', **NULLABLE, max_length=200)
+    members = models.ManyToManyField(
+            'core.User',
+            verbose_name='Участники',
+            related_name='group_members',
+            through='membership.Membership',
+            through_fields=('group', 'user')
+        )
 
     class Meta:
         verbose_name = 'Группа'
@@ -23,3 +30,6 @@ class Group(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_members(self):
+        return ', '.join([p.email for p in self.members.all()])

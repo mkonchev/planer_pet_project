@@ -2,4 +2,4 @@ from django.contrib import admin
 
 
 class GroupModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'slug', 'get_members']
