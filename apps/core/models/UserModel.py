@@ -10,13 +10,13 @@ class User(AbstractUser):
     username = models.CharField(_('username'), max_length=150, null=True, blank=True)
     email = models.EmailField(_('email address'), unique=True)
     balance = models.PositiveIntegerField(verbose_name='Баланс', default=0)
-    group = models.ForeignKey(
-        'group.Group',
-        verbose_name='Группа',
-        on_delete=models.PROTECT,
-        related_name='users',
-        **NULLABLE
-    )
+    # group = models.ManyToManyField(
+    #         'group.Group',
+    #         verbose_name='Участники',
+    #         related_name='group_members',
+    #         through='membership.Membership',
+    #         through_fields=('group', 'user')
+    #     )
     sub_active = models.BooleanField(verbose_name='Подписка', default=False)
     sub_due_to_date = models.DateTimeField(verbose_name='Активна до', **NULLABLE)
 
@@ -24,3 +24,6 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager()
+
+    def get_groups(self):
+        return ', '.join([group.slug for group in self.group_members.all()])

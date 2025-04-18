@@ -29,7 +29,7 @@ class Group(models.Model):
         verbose_name_plural = 'Группы'
 
     def __str__(self):
-        return self.name
+        return self.slug
 
     def get_members(self):
         return ', '.join([p.email for p in self.members.all()])
