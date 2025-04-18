@@ -8,6 +8,6 @@ from apps.core.models import User
 
 @api_view(['GET'])
 def user_list_view(request):
-    user_list = User.objects.all()
+    user_list = User.objects.prefetch_related('group_members').all()
     serializer = UserSerializer(user_list, many=True)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
