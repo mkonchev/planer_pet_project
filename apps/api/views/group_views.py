@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from apps.api.serializers import GroupSerializer
+from apps.api.serializers.GroupSerializer import GroupSerializer
 from apps.group.models import Group
 
 
