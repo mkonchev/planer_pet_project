@@ -4,4 +4,5 @@ app_name = 'api'
 
 urlpatterns = [
      path('groups/', include('apps.api.urls.group_urls')),
+     path('users/', include('apps.api.urls.user_urls')),
 ]
