@@ -6,4 +6,5 @@ urlpatterns = [
      path('groups/', include('apps.api.urls.group_urls')),
      path('users/', include('apps.api.urls.user_urls')),
      path('memberships/', include('apps.api.urls.membership_urls')),
+     path('order/', include('apps.api.urls.order_urls')),
 ]
