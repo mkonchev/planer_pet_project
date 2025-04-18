@@ -18,3 +18,10 @@ def group_by_id(request, pk):
     group = Group.objects.get(pk=pk)
     serializer = GroupSerializer(group)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def group_by_slug(request, slug):
+    group = Group.objects.get(slug=slug)
+    serializer = GroupSerializer(group)
+    return Response(data=serializer.data, status=status.HTTP_200_OK)
