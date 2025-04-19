@@ -11,3 +11,10 @@ def task_list_view(request):
     task_list = Task.objects.all()
     serializer = TaskSerializer(task_list, many=True)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def task_by_id(request, pk):
+    task = Task.objects.get(pk=pk)
+    serializer = TaskSerializer(task)
+    return Response(data=serializer.data, status=status.HTTP_200_OK)
