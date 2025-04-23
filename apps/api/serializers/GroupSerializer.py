@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from apps.api.serializers.UserSerializers import UserSerializer
+# from apps.api.serializers.UserSerializers import UserSerializer
 from apps.group.models import Group
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    owner = UserSerializer()
+    # owner = UserSerializer()
 
     class Meta:
         model = Group
