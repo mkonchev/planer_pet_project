@@ -31,9 +31,6 @@ def user_by_id(request, pk):
 def add_user(request):
     user = UserSerializer(data=request.data)
 
-    # if user.objects.filter(**request.data).exists():
-    #     raise serializers.ValidationError('This data already exists')
-
     if user.is_valid():
         user.save()
         return Response(data=user.data, status=status.HTTP_200_OK)
